@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #002b36;
+}
+
+.radar-container {
+    width: 100vw;
+    height: 100vw;
+    max-width: 800px;
+    max-height: 800px;
+    position: relative;
+}
+
+.radar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.1) 10%, rgba(0, 255, 0, 0.05) 20%, rgba(0, 0, 0, 0) 25%);
+    position: relative;
+    overflow: visible;
+}
+
+.line {
+    position: absolute;
+    border: 4px solid rgba(0, 255, 0, 10);
+    /* Thicker lines */
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle:nth-child(1) {
+    width: 25%;
+    height: 25%;
+}
+
+.circle:nth-child(2) {
+    width: 50%;
+    height: 50%;
+}
+
+.circle:nth-child(3) {
+    width: 75%;
+    height: 75%;
+}
+
+.circle:nth-child(4) {
+    width: 100%;
+    height: 100%;
+}
+
+.circle:nth-child(5) {
+    width: 125%;
+    height: 125%;
+}
+
+.circle:nth-child(6) {
+    width: 150%;
+    height: 150%;
+}
+
+.circle:nth-child(7) {
+    width: 150%;
+    height: 150%;
+}
+
+.circle:nth-child(8) {
+    width: 150%;
+    height: 150%;
+}
+
+.radar-line {
+    width: 100%;
+    height: 0px;
+    background: rgba(0, 255, 0, 0.5);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
+    transform: translateX(-50%);
+    animation: sweep 4s linear infinite;
+}
+
+@keyframes sweep {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+.ping {
+    position: absolute;
+    background: rgba(0, 255, 0, 0.7);
+    border-radius: 50%;
+    animation: ping-animation 2s ease-out forwards;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@keyframes ping-animation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* New class for the drone logo ping */
+.drone-logo {
+    background-image: url('drone-logo.png');
+    /* Add your drone logo URL here */
+    background-size: cover;
+    animation: infinite;
+
+    /* Remove the animation for the static ping */
+}
